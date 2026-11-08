@@ -1,10 +1,6 @@
 import {
   useState,
   useEffect,
-  useRef,
-  createContext,
-  useReducer,
-  useContext,
 } from "react";
 import "./App.css";
 import PlatformContent from "./components/navbarLinksContent/PlatformContent";
@@ -44,14 +40,14 @@ function App() {
 
   return (
     <>
-      <div className="main-container py-5 px-10">
-        <div className="main-header mb-30 flex justify-between items-start">
+      <div className="main-container py-5 px-10 h-full">
+        <header className="main-header mb-30 flex justify-between items-start">
           <nav>
             <div className="links">
               <ul className="links-container flex gap-5 items-center">
                 <li className="link">
                   <div className="border-2 border-gray-50 rounded-full p-1 hover:border-gray-400">
-                     <a href="https://github.com/">git</a>
+                    <a href="https://github.com/">git</a>
                   </div>
                 </li>
                 <li className="link" onMouseOver={() => setActiveMenu("platform")} onMouseLeave={() => setActiveMenu(null)}>Platform</li>
@@ -70,7 +66,7 @@ function App() {
               <EnterpriseContent display={activeMenu === "enterprise"} onHover={() => setActiveMenu("enterprise")} onLeave={() => setActiveMenu(null)}/>
             </div>
           </nav>
-          <header className="flex gap-5 items-center">
+          <div className="flex gap-5 items-center">
             <div className={`search`}>
               <i></i>
               <input
@@ -84,17 +80,17 @@ function App() {
             </div>
             <div className="sign flex gap-5">
               <button className="hover:text-gray-400 cursor-pointer">
-                 <a href="https://github.com/login">sign in</a>
+                <a href="https://github.com/login">sign in</a>
               </button>
               <button className="hover:text-gray-400 hover:border-gray-400 border-gray-50 border-2 rounded-xl px-3 pb-0.5 cursor-pointer">
-                 <a href="https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home">sign up</a>
+                <a href="https://github.com/signup?ref_cta=Sign+up&ref_loc=div+logged+out&ref_page=%2F&source=header-home">sign up</a>
               </button>
             </div>
-          </header>
-        </div>
+          </div>
+        </header>
 
-        <div className="main-content flex justify-center items-center">
-          <main className="max-w-200">
+        <main className="main-content flex justify-center items-center">
+          <div className="max-w-200">
             <div className="text-center">
               <h1 className="text-6xl mb-5">
                 Build and ship software on a single, collaborative platform
@@ -116,12 +112,12 @@ function App() {
                 </button>
               </div>
               <button className="border-2 border-gray-50 h-15 w-50 px-5 py-3 rounded-xl bg-gray-900/50 hover:border-gray-400 cursor-pointer">
-                 <a href="https://github.com/github-copilot/pro">Try Github Copilot</a>
+                <a href="https://github.com/github-copilot/pro">Try Github Copilot</a>
               </button>
             </div>
             <p className="text-center">{discription}|</p>
-          </main>
-        </div>
+          </div>
+        </main>
       </div>
     </>
   );
